@@ -1,10 +1,11 @@
+import cosas.*
 object camion {
     //Se pide que se le pueda cargar y descargar cosas (de 1 a vez) y también cual es el peso total del camión, incluyendo su tara que es de 1000 kg.
     const tara = 1000
     const cosas = []
 
     method pesoTotal(){
-        return cosas.sum({c => c.peso()})
+        return tara + cosas.sum({c => c.peso()})
     }
 
     method cargar(cosa){
@@ -12,7 +13,7 @@ object camion {
     }
 
     method descargar(cosa){
-        cosas.remove(cosa)
+        cosas.remove(cosa) //la cosa debe existir en la colección de cosas de lo contrario "rompería"
     }
 
     // También se necesita conocer si los pesos de todas las cosas cargadas en el camión son números pares.
